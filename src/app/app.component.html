@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">Angular Silent Refresh Demo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/admin">Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/messages">Messages</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 70px;">
+    <div class="alert-success">OAuth event: {{ OAuthEvent?.type }} • event time: {{ eventTime | date:'medium' }} </div>
+    <button class="btn btn-primary" style="margin-top: 15px;" (click)="getClaims()"> Get claims</button>
+
+    <table *ngIf="userClaims" class="table table-hover" style="margin-top: 15px;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Profile</th>
+                <th>Unique name</th>
+                <th>Identity Provider</th>
+                <th>Expiry Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>{{ userClaims.name }}</td>
+            <td>{{ userClaims.profile }}</td>
+            <td> {{ userClaims.unique_name }}</td>
+            <td> {{ userClaims.idp }}</td>
+            <td> {{ expiryDate | date:'medium' }}</td>
+        </tbody>
+    </table>
+</div>
+<router-outlet></router-outlet>

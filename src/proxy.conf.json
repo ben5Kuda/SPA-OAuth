@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://localhost:4040/eventHub",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
